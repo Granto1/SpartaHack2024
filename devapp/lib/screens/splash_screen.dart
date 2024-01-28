@@ -1,7 +1,6 @@
 import 'package:devapp/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -46,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen>
             end: Alignment.bottomLeft,
           ),
         ),
-        child: Row(children: [Image(
+        child: Column(children: [Container(height: 200,), Image(
           image: AssetImage('assets/bluecat.png'),
         ), Image(image: AssetImage('assets/spin.gif'))],),
         // child: Column(

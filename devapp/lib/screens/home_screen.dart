@@ -1,7 +1,8 @@
-import 'dart:math';
+import 'package:devapp/screens/camera_view.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:devapp/screens/mode1_screen.dart';
+import 'dart:io';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,81 +11,103 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(height: 50),
-                Container(
-                    height: 450,
-                    width: 730.9063136,
-                    child: Image.asset(
-                      'assets/bluecat.png',
-                    )),
-                Container(
-                  height: 100,
-                  width: 350,
-                  child: Image.asset('assets/logo.png'),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(height: 50),
+                    Container(
+                        height: 275,
+                        //width: 730.9063136,
+                        child: Image.asset(
+                          'assets/bluecat.png',
+                        )),
+                    Container(
+                      height: 100,
+                      width: 350,
+                      child: Image.asset('assets/logo.png'),
+                    )
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 350,
+                      child: TextButton(
+                        // style: ButtonStyle(
+                        //   foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                        // ),
+                        style: flatButtonStyle,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ModeScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          "PRACTICE!",
+                          style: TextStyle(
+                            fontSize: 60.0,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 100,
+                      width: 350,
+                      child: TextButton(
+                        // style: ButtonStyle(
+                        //   foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                        // ),
+                        style: flatButtonStyle,
+                        onPressed: () {},
+                        child: const Text(
+                          "PLAY!",
+                          style: TextStyle(
+                            fontSize: 60.0,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 100,
+                      width: 350,
+                      child: TextButton(
+                        // style: ButtonStyle(
+                        //   foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                        // ),
+                        style: flatButtonStyle,
+                        onPressed: () {
+                          SystemChannels.platform
+                              .invokeMethod('SystemNavigator.pop');
+                        },
+                        child: const Text(
+                          "QUIT!",
+                          style: TextStyle(
+                            fontSize: 60.0,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 200,
-                  width: 350,
-                  child: TextButton(
-                    // style: ButtonStyle(
-                    //   foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                    // ),
-                    style: flatButtonStyle,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const ModeScreen(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      "PLAY!",
-                      style: TextStyle(
-                        fontSize: 60.0,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 200,
-                  width: 350,
-                  child: TextButton(
-                    // style: ButtonStyle(
-                    //   foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                    // ),
-                    style: flatButtonStyle,
-                    onPressed: () {},
-                    child: const Text(
-                      "",
-                      style: TextStyle(
-                        fontSize: 60.0,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            )
           ],
-        ),
-      ],
-    ));
+        ));
   }
 }
 
