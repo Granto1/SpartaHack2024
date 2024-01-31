@@ -2,6 +2,9 @@
 
 ## Project for Spartahack 2024
 
+Devpost Link: https://devpost.com/software/silingo  
+Youtube Video Link: https://www.youtube.com/watch?v=x5WQQo4utDw
+
 **OVERVIEW**
 
 SiLingo Folder: Node.js work  
